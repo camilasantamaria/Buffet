@@ -1,0 +1,9 @@
+@extends('layout.layout')
+@section('contenido')
+    Servicios
+@endsection
+@section('pie')
+@endsection
+@section('menu')
+    @extends('componentes.nvar')
+@endsection
