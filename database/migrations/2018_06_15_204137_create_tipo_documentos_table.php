@@ -16,9 +16,8 @@ class CreateTipoDocumentosTable extends Migration
         Schema::create('tipo_documentos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->multiLineString('descripcion');
+            $table->text('descripcion');
             $table->timestamps();
-            //estamos trabajando en latavel
         });
     }
 

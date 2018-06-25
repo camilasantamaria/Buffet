@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -18,22 +18,22 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+   public function login(){
+   $credenciales = $this->validate(request(),[
+        'usuario'=>'required',
+        'clave'=>'required'
+    ]);
+   if (Auth::attempt($credenciales)){
+       return redirect()->route('admin');
+   }
+   return back()
+       ->withErrors(['usuario'=>trans('auth.failed')])
+       ->withInput(request(['usuario']));
+   }
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+   public function salir(){
+       Auth::logout();
+       return redirect('/');
+   }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
 }

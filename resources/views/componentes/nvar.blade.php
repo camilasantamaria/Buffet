@@ -15,6 +15,7 @@
         <li><a href="{{Route('servicios')}}">Servicios</a></li>
         <li><a href="{{Route('productos')}}">Productos</a></li>
         <li><a href="{{Route('contacto')}}">Contacto</a></li>
+        <li><a href="{{Route('login')}}">Login</a></li>
     </ul>
 </nav>
 </body>

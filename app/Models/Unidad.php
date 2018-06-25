@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Unidad extends Model
 {
-    //
+    protected $fillable = [
+        'tipo_unidad','cantidad',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'remember_token',
+    ];
 }

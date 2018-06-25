@@ -27,5 +27,6 @@ class VistasController extends Controller
     {
         return view('contacto');
     }
+
 }
 
